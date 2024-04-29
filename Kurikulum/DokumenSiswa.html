@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Hasil Belajar Siswa - SMAN 20 Jakarta </title>
+		<link rel="favicon" href="Assets/logo.png">
+		<link rel="stylesheet" media="screen" href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,700">
+		<link rel="stylesheet" href="Assets/bootstrap.css">
+		<link rel="stylesheet" href="Assets/style.css">
+        
+	
+		<script>
+			$(document).ready(function(){
+			  $('.dropdown-submenu a.test').on("click", function(e){
+				$(this).next('ul').toggle();
+				e.stopPropagation();
+				e.preventDefault();
+			  });
+			});
+			</script>
+
+		<script>
+			document.getElementById("Search").addEventListener("click", function(event){
+  			event.preventDefault()
+			});
+
+			function myFunction() {
+
+				
+				event.preventDefault()
+				const NISN_SISWA = `${document.getElementById("NISN").value}`
+
+				
+					
+					if (document.getElementById("NISN").value == "") {
+					alert("NISN Kosong, Mohon Isi")
+					return
+				} else {
+					var fileCheck = [false, false, false,false,false,false,false,false,false,false,false,false,false,false]
+					// midSem1, sem1, midSem2, sem2, midSem3, sem3, midsSem4, sem4, midSem5, sem5, midSem6, sem6, apa, skl
+					var show = [0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+
+					fileCheck[0] = doesFileExist(`DocSiswa/${NISN_SISWA}_midsem1.pdf`);
+					console.log(fileCheck[0]);
+					if (fileCheck[0]==true) {
+						document.getElementById("ms1").style.display = "block"
+						var rms1 = document.createDocumentFragment();
+						var iframems1 = document.createElement("iframe");
+						iframems1.setAttribute("id", "rms1");
+						iframems1.setAttribute("src", `DocSiswa/${NISN_SISWA}_midsem1.pdf`);
+						iframems1.setAttribute("style", "width: 100%; height: 100vh; margin-top: 2vh;");
+						iframems1.appendChild(document.createTextNode("Raport Mid Semester 1"));
+
+						rms1.appendChild(iframems1);
+
+						document.getElementById("ms1").appendChild(rms1);
+					
+					} else {
+						var rms1 = document.createDocumentFragment();
+						var iframems1 = document.createElement("p");
+						iframems1.appendChild(document.createTextNode("Raport Mid Semester 1"));
+						document.getElementById("ms1").appendChild(rms1);
+					}
+
+					fileCheck[1] = doesFileExist(`DocSiswa/${NISN_SISWA}_sem1.pdf`);
+					console.log(fileCheck[1]);
+					if (fileCheck[1]==true) {
+						document.getElementById("s1").style.display = "block"
+						var rs1 = document.createDocumentFragment();
+						var iframes1 = document.createElement("iframe");
+						iframes1.setAttribute("id", "rs1");
+						iframes1.setAttribute("src", `DocSiswa/${NISN_SISWA}_sem1.pdf`);
+						iframes1.setAttribute("style", "width: 100%; height: 100vh; margin-top: 2vh;");
+						iframes1.appendChild(document.createTextNode("Raport Semester 1"));
+
+						rs1.appendChild(iframes1);
+
+						document.getElementById("s1").appendChild(rs1);
+					
+					} else {
+						var rs1 = document.createDocumentFragment();
+						var iframes1 = document.createElement("p");
+						iframes1.appendChild(document.createTextNode("Raport Semester 1"));
+						document.getElementById("s1").appendChild(rs1);
+					}
+
+					fileCheck[2] = doesFileExist(`DocSiswa/${NISN_SISWA}_midsem2.pdf`);
+					console.log(fileCheck[2]);
+					if (fileCheck[2]==true) {
+						document.getElementById("ms2").style.display = "block"
+						var rms2 = document.createDocumentFragment();
+						var iframems2 = document.createElement("iframe");
+						iframems2.setAttribute("id", "rms2");
+						iframems2.setAttribute("src", `DocSiswa/${NISN_SISWA}_midsem2.pdf`);
+						iframems2.setAttribute("style", "width: 100%; height: 100vh; margin-top: 2vh;");
+						iframems2.appendChild(document.createTextNode("Raport Mid Semester 2"));
+
+						rms2.appendChild(iframems2);
+
+						document.getElementById("ms2").appendChild(rms2);
+					
+					} else {
+						var rms2 = document.createDocumentFragment();
+						var iframems2 = document.createElement("p");
+						iframems2.appendChild(document.createTextNode("Raport Mid Semester 2"));
+						document.getElementById("ms2").appendChild(rms2);
+					}
+
+					fileCheck[3] = doesFileExist(`DocSiswa/${NISN_SISWA}_sem2.pdf`);
+					console.log(fileCheck[3]);
+					if (fileCheck[3]==true) {
+						document.getElementById("s2").style.display = "block"
+						var rs2 = document.createDocumentFragment();
+						var iframes2 = document.createElement("iframe");
+						iframes2.setAttribute("id", "rs2");
+						iframes2.setAttribute("src", `DocSiswa/${NISN_SISWA}_sem2.pdf`);
+						iframes2.setAttribute("style", "width: 100%; height: 100vh; margin-top: 2vh;");
+						iframes2.appendChild(document.createTextNode("Raport Semester 2"));
+
+						rs2.appendChild(iframes2);
+
+						document.getElementById("s2").appendChild(rs2);
+					
+					} else {
+						var rs2 = document.createDocumentFragment();
+						var iframes2 = document.createElement("p");
+						iframes2.appendChild(document.createTextNode("Raport Semester 2"));
+						document.getElementById("s2").appendChild(rs2);
+					}
+
+					fileCheck[4] = doesFileExist(`DocSiswa/${NISN_SISWA}_midsem3.pdf`);
+					console.log(fileCheck[4]);
+					if (fileCheck[4]==true) {
+						document.getElementById("ms3").style.display = "block"
+						var rms3 = document.createDocumentFragment();
+						var iframems3 = document.createElement("iframe");
+						iframems3.setAttribute("id", "rms3");
+						iframems3.setAttribute("src", `DocSiswa/${NISN_SISWA}_midsem3.pdf`);
+						iframems3.setAttribute("style", "width: 100%; height: 100vh; margin-top: 2vh;");
+						iframems3.appendChild(document.createTextNode("Raport Mid Semester 3"));
+
+						rms3.appendChild(iframems3);
+
+						document.getElementById("ms3").appendChild(rms3);
+					
+					} else {
+						var rms3 = document.createDocumentFragment();
+						var iframems3 = document.createElement("p");
+						iframems3.appendChild(document.createTextNode("Raport Mid Semester 3"));
+						document.getElementById("ms3").appendChild(rms3);
+					}
+
+					fileCheck[5] = doesFileExist(`DocSiswa/${NISN_SISWA}_sem3.pdf`);
+					console.log(fileCheck[5]);
+					if (fileCheck[5]==true) {
+						document.getElementById("s3").style.display = "block"
+						var rs3 = document.createDocumentFragment();
+						var iframes3 = document.createElement("iframe");
+						iframes3.setAttribute("id", "rs3");
+						iframes3.setAttribute("src", `DocSiswa/${NISN_SISWA}_sem3.pdf`);
+						iframes3.setAttribute("style", "width: 100%; height: 100vh; margin-top: 2vh;");
+						iframes3.appendChild(document.createTextNode("Raport Semester 3"));
+
+						rs3.appendChild(iframes3);
+
+						document.getElementById("s3").appendChild(rs3);
+					
+					} else {
+						var rs3 = document.createDocumentFragment();
+						var iframes3 = document.createElement("p");
+						iframes3.appendChild(document.createTextNode("Raport Semester 3"));
+						document.getElementById("s3").appendChild(rs3);
+					}
+
+					fileCheck[6] = doesFileExist(`DocSiswa/${NISN_SISWA}_midsem4.pdf`);
+					console.log(fileCheck[6]);
+					if (fileCheck[6]==true) {
+						document.getElementById("ms4").style.display = "block"
+						var rms4 = document.createDocumentFragment();
+						var iframems4 = document.createElement("iframe");
+						iframems4.setAttribute("id", "rms4");
+						iframems4.setAttribute("src", `DocSiswa/${NISN_SISWA}_midsem4.pdf`);
+						iframems4.setAttribute("style", "width: 100%; height: 100vh; margin-top: 2vh;");
+						iframems4.appendChild(document.createTextNode("Raport Mid Semester 4"));
+
+						rms4.appendChild(iframems4);
+
+						document.getElementById("ms4").appendChild(rms4);
+					
+					} else {
+						var rms6 = document.createDocumentFragment();
+						var iframems4 = document.createElement("p");
+						iframems4.appendChild(document.createTextNode("Raport Mid Semester 4"));
+						document.getElementById("ms4").appendChild(rms6);
+					}
+
+					fileCheck[7] = doesFileExist(`DocSiswa/${NISN_SISWA}_sem4.pdf`);
+					console.log(fileCheck[7]);
+					if (fileCheck[7]==true) {
+						document.getElementById("s4").style.display = "block"
+						var rs4 = document.createDocumentFragment();
+						var iframes4 = document.createElement("iframe");
+						iframes4.setAttribute("id", "rs4");
+						iframes4.setAttribute("src", `DocSiswa/${NISN_SISWA}_sem4.pdf`);
+						iframes4.setAttribute("style", "width: 100%; height: 100vh; margin-top: 2vh;");
+						iframes4.appendChild(document.createTextNode("Raport Semester 4"));
+
+						rs4.appendChild(iframes4);
+
+						document.getElementById("s4").appendChild(rs4);
+					
+					} else {
+						var rs4 = document.createDocumentFragment();
+						var iframes4 = document.createElement("p");
+						iframes4.appendChild(document.createTextNode("Raport Semester 4"));
+						document.getElementById("s4").appendChild(rs4);
+					}
+
+					fileCheck[8] = doesFileExist(`DocSiswa/${NISN_SISWA}_midsem5.pdf`);
+					console.log(fileCheck[8]);
+					if (fileCheck[8]==true) {
+						document.getElementById("ms5").style.display = "block"
+						var rms5 = document.createDocumentFragment();
+						var iframems5 = document.createElement("iframe");
+						iframems5.setAttribute("id", "rms5");
+						iframems5.setAttribute("src", `DocSiswa/${NISN_SISWA}_midsem5.pdf`);
+						iframems5.setAttribute("style", "width: 100%; height: 100vh; margin-top: 2vh;");
+						iframems5.appendChild(document.createTextNode("Raport Mid Semester 5"));
+
+						rms5.appendChild(iframems5);
+
+						document.getElementById("ms5").appendChild(rms5);
+					
+					} else {
+						var rms5 = document.createDocumentFragment();
+						var iframems5 = document.createElement("p");
+						iframems5.appendChild(document.createTextNode("Raport Mid Semester 5"));
+						document.getElementById("ms5").appendChild(rms5);
+					}
+
+					fileCheck[9] = doesFileExist(`DocSiswa/${NISN_SISWA}_sem5.pdf`);
+					console.log(fileCheck[9]);
+					if (fileCheck[9]==true) {
+						document.getElementById("s5").style.display = "block"
+						var rs5 = document.createDocumentFragment();
+						var iframes5 = document.createElement("iframe");
+						iframes5.setAttribute("id", "rs5");
+						iframes5.setAttribute("src", `DocSiswa/${NISN_SISWA}_sem5.pdf`);
+						iframes5.setAttribute("style", "width: 100%; height: 100vh; margin-top: 2vh;");
+						iframes5.appendChild(document.createTextNode("Raport Semester 5"));
+
+						rs5.appendChild(iframes5);
+
+						document.getElementById("s5").appendChild(rs5);
+					
+					} else {
+						var rs5 = document.createDocumentFragment();
+						var iframes5 = document.createElement("p");
+						iframes5.appendChild(document.createTextNode("Raport Semester 5"));
+						document.getElementById("s5").appendChild(rs5);
+					}
+
+					fileCheck[11] = doesFileExist(`DocSiswa/${NISN_SISWA}_sem6.pdf`);
+					console.log(fileCheck[11]);
+					if (fileCheck[11]==true) {
+						document.getElementById("s6").style.display = "block"
+						var rs6 = document.createDocumentFragment();
+						var iframes6 = document.createElement("iframe");
+						iframes6.setAttribute("id", "rs6");
+						iframes6.setAttribute("src", `DocSiswa/${NISN_SISWA}_sem6.pdf`);
+						iframes6.setAttribute("style", "width: 100%; height: 100vh; margin-top: 2vh;");
+						iframes6.appendChild(document.createTextNode("Raport Semester 6"));
+
+						rs6.appendChild(iframes6);
+
+						document.getElementById("s6").appendChild(rs6);
+					
+					} else {
+						var rs6 = document.createDocumentFragment();
+						var iframes6 = document.createElement("p");
+						iframes6.appendChild(document.createTextNode("Raport Semester 6"));
+						document.getElementById("s6").appendChild(rs6);
+					}
+
+					fileCheck[12] = doesFileExist(`DocSiswa/kelulusan.pdf`);
+					console.log(fileCheck[12]);
+					if (fileCheck[12]==true) {
+						document.getElementById("Kelulusan").style.display = "block"
+						var Kelulusan = document.createDocumentFragment();
+						var iframeKelulusan = document.createElement("iframe");
+						iframeKelulusan.setAttribute("id", "kelulusan");
+						iframeKelulusan.setAttribute("src", `DocSiswa/kelulusan.pdf`);
+						iframeKelulusan.setAttribute("style", "width: 100%; height: 100vh; margin-top: 2vh;");
+						iframeKelulusan.appendChild(document.createTextNode("Kelulusan"));
+
+						Kelulusan.appendChild(iframeKelulusan);
+
+						document.getElementById("Kelulusan").appendChild(Kelulusan);
+					
+					} else {
+						var Kelulusan = document.createDocumentFragment();
+						var iframeKelulusan = document.createElement("p");
+						iframeKelulusan.appendChild(document.createTextNode("Kelulusan"));
+						document.getElementById("Kelulusan").appendChild(Kelulusan);
+					}
+
+
+					fileCheck[13] = doesFileExist(`DocSiswa/${NISN_SISWA}_transkrip.pdf`);
+					console.log(fileCheck[13]);
+					if (fileCheck[13]==true) {
+						document.getElementById("Transkrip").style.display = "block"
+						var Transkrip = document.createDocumentFragment();
+						var iframeTranskrip = document.createElement("iframe");
+						iframeTranskrip.setAttribute("id", "transkrip");
+						iframeTranskrip.setAttribute("src", `DocSiswa/${NISN_SISWA}_transkrip.pdf`);
+						iframeTranskrip.setAttribute("style", "width: 100%; height: 100vh; margin-top: 2vh;");
+						iframeTranskrip.appendChild(document.createTextNode("Transkrip"));
+
+						Transkrip.appendChild(iframeTranskrip);
+
+						document.getElementById("Transkrip").appendChild(Transkrip);
+					
+					} else {
+						var Transkrip = document.createDocumentFragment();
+						var iframeTranskrip = document.createElement("p");
+						iframeTranskrip.appendChild(document.createTextNode("Transkrip"));
+						document.getElementById("Transkrip").appendChild(Transkrip);
+					}
+
+
+					fileCheck[14] = doesFileExist(`DocSiswa/${NISN_SISWA}.pdf`);
+					console.log(fileCheck[14]);
+					if (fileCheck[14]==true) {
+						document.getElementById("SKL").style.display = "block"
+						var SKL = document.createDocumentFragment();
+						var iframeSKL = document.createElement("iframe");
+						iframeSKL.setAttribute("id", "SK");
+						iframeSKL.setAttribute("src", `DocSiswa/${NISN_SISWA}.pdf`);
+						iframeSKL.setAttribute("style", "width: 100%; height: 100vh; margin-top: 2vh;");
+						iframeSKL.appendChild(document.createTextNode("Surat Keterangan Lulus Siswa"));
+
+						SKL.appendChild(iframeSKL);
+
+						document.getElementById("SKL").appendChild(SKL);
+					
+					} else {
+						var SKL = document.createDocumentFragment();
+						var iframeSKL = document.createElement("p");
+						iframeSKL.appendChild(document.createTextNode("Surat Keterangan Lulus Siswa"));
+						document.getElementById("SKL").appendChild(SKL);
+					}
+					
+					}
+
+			
+					Disable();
+
+
+
+	  		}
+
+			  function Disable() {
+				  console.log("Button Disabled !");
+				  
+				document.getElementById("Submit").disabled = true;
+
+				var tree = document.createDocumentFragment();
+					var link = document.createElement("button");
+					link.setAttribute("id", "Refresh");
+					link.setAttribute("class", "btn btn-primary");
+                    link.setAttribute("style", "margin-left:2vw;");
+					link.setAttribute("onClick", "window.location.reload();");
+					link.appendChild(document.createTextNode("Ulang Pencarian"));
+
+					tree.appendChild(link);
+					console.log(tree.appendChild(link).status);
+
+					document.getElementById("Reload").appendChild(tree);
+			  }
+
+			  function doesFileExist(urlToFile) {
+					var xhr = new XMLHttpRequest();
+					xhr.open('HEAD', urlToFile, false);
+					xhr.send();
+					
+					if (xhr.status == "404") {
+						return false;
+					} else {
+						return true;
+					}
+				}
+
+		</script>
+	
+	</head>
+<body style="background-color: #2a2a72;
+background-image: linear-gradient(315deg, #fcb900 0%, #fdec02 74%);height: 100%;">
+
+
+
+
+       
+
+	<header id="head2" class="secondary">
+	</header>
+	
+	
+      <section class="container" style="display: flex; flex-direction: column; align-items: center; margin-top: 10vh;" >
+       
+
+      <div class="row" style="margin: 30px;">
+      	<div class="col-md-12"><div class="title-box clearfix "><h1 class="title-box_primary" style="color: rgb(92, 8, 8); text-align: center;">Pengumuman Kelulusan dan Laporan Hasil Belajar Siswa</h1></div> 		  
+		  
+	</div>
+	  </div>
+
+        <a href="https://sman20-jkt.sch.id/" style="margin: 30px;"><img src="Assets/logo.png" alt=""></a>
+		<div class="row" style="margin: 30px;">
+			<div class="col-md-12" style="width: 80vw;">
+				<input type="text" class="form-control" id="NISN" placeholder="Ketik NISN Mu Disini" value="" required>
+			</div>
+			
+		</div>
+		<div class="row"style="margin: 30px;">
+			<div class="col-md-2">
+				<button id="Submit" class="btn btn-primary mt-2" onclick="myFunction()">Search</button>
+				
+			</div>
+
+			<div id="Reload" class="col-md-2 mt-2"></div>
+		</div>
+	
+	  
+	  <div id="Documents" class="col-md-12" style="color: rgb(58, 6, 6);">
+		  
+		  <div id="ms1" style="display: none;"><h2>Rapot Kelas X Mid Semester 1</h2></div>
+		  
+		  <div id="s1" style="display: none;"><h2>Rapot Kelas X Semester 1</h2></div>
+		  
+		  <div id="ms2" style="display: none;"><h2>Rapot Kelas X Mid Semester 2</h2></div>
+		  
+		  <div id="s2" style="display: none;"><h2>Rapot Kelas X Semester 2</h2></div>
+		  
+		  <div id="ms3" style="display: none;"><h2>Rapot Kelas XI Mid Semester 1</h2></div>
+		  
+		  <div id="s3" style="display: none;"><h2>Rapot Kelas XI Semester 1</h2></div>
+		
+		  <div id="ms4" style="display: none;"><h2>Rapot Kelas XI Mid Semester 2</h2></div>
+		  
+		  <div id="s4" style="display: none;"><h2>Rapot Kelas XI Semester 2</h2></div>
+		  
+		  <div id="ms5" style="display: none;"><h2>Rapot Kelas XII Mid Semester 1</h2></div>
+		  
+		  <div id="s5" style="display: none;"><h2>Rapot Kelas XII Semester 1</h2></div>
+		  
+		  <div id="s6" style="display: none;"><h2>Rapot Kelas XII Semester 2</h2></div>
+
+		  <div id="Kelulusan" style="display: none;"><h2>Pengumuman Kelulusan Kelas XII 2022/2023</h2> </div> <br><br><br>
+		  
+		  <div id="Transkrip" style="display: none;"><h2>Transkip Nilai</h2></div>
+
+		  <div id="SKL" style="display: none;"><h2>Surat Keterangan Lulus</h2></div>
+	  </div>
+        
+      <div class="row">
+        <div class="col-md-12" style=" margin: 5vh;">
+            <a href="../index.html" style="font-size: large; color: rgb(66, 7, 7);">Kembali ke Halaman Utama</a></li>
+        </div>
+    </div>
+      </section>
+      
+    
+      
+   
+    
+</body>
+</html>
